@@ -1,3 +1,5 @@
+ADD R0, R0, R0
+LST:
 LLB R19, 0x2
 LLB R18, 1
 LLB R1, 6
@@ -7,3 +9,5 @@ LW R29, R3, 0
 and R2,R63,R62
 SW  R55, R54, 19
 nor R4,R1,R3
+LLB R5, 0
+b uncond, LST

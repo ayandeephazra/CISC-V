@@ -62,7 +62,7 @@ reg [5:0] rf_dst_addr_ID_EX,rf_dst_addr_EX_DM;
 reg	dm_re_ID_EX;
 reg	dm_we_ID_EX;
 reg hlt_ID_EX,hlt_EX_DM;
-reg [14:0] instr_ID_EX;		// only need lower 15-bits for immediate values
+reg [10:0] instr_ID_EX;		// only need lower 15-bits for immediate values
 reg flow_change_EX_DM;		// needed to pipeline flow_change_ID_EX
 reg cond_ex_ID_EX;			// needed for ADDZ knock down of rf_we
 
@@ -101,7 +101,7 @@ always @(posedge clk)
 	  dm_we_ID_EX       <= dm_we & !load_use_hazard & !flush;
 	  clk_z_ID_EX		<= clk_z & !load_use_hazard & !flush;
 	  clk_nv_ID_EX		<= clk_nv & !load_use_hazard & !flush;
-	  instr_ID_EX		<= instr_IM_ID[14:0];
+	  instr_ID_EX		<= instr_IM_ID[10:0];
 	  cond_ex_ID_EX 	<= cond_ex;
 	end
 	
@@ -183,7 +183,7 @@ assign stall_IM_ID = hlt_ID_EX | load_use_hazard;
 assign stall_ID_EX = 1'b0; // hlt_EX_DM;
 assign stall_EX_DM = 1'b0; // hlt_EX_DM;
 
-assign cc_ID_EX = instr_ID_EX[34:32]; /*11:9 */
+assign cc_ID_EX = instr_ID_EX[35:33]; /*11:9 */
 
 //////////////////////////////////////////////////////////////
 // default to most common state and override base on instr //
@@ -208,7 +208,7 @@ always @(instr_IM_ID) begin
   hlt = 0;
   cond_ex = 0;
   
-  case (instr_IM_ID[44:40])
+  case (instr_IM_ID[40:36])
     ADDi : begin
 	  rf_re0 = 1;
 	  rf_re1 = 1;

@@ -250,16 +250,22 @@ while(<IN>) {
       }
 
       elsif($instr =~ /^(B)$/) {
+	  
+	  $bits = "";
+	  $bits .= "0000000";
+      $bits .= "$opcode{$instr}";
 
 	  if(!$conds{$args[0]}) { die("Invalid condition code ($args[0])\n$_\nUse only from {NEQ, EQ, GT, LT, GTE, LTE, OVFL, UNCOND}") }
 
 	  else { $bits .= $conds{$args[0]}; }
 
-
+	  $bits .= "000000000000000000000000";
 
 	  if($args[1] !~ /[a-zA-Z]/) { print STDERR "Error: Invalid label name: \"$args[1]\" in line:\n$_"; exit; }
 
 	  $bits .= "|" . $args[1] . "|9|B|";
+	  
+	  
 
       }
 
