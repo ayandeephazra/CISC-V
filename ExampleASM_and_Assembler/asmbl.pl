@@ -82,7 +82,7 @@ my %regs = ("R0" => "000000", "R1" => "000001", "R2" => "000010", "R3" => "00001
 
 
 
-my %conds = ("NEQ" => "000", "EQ" => "001", "GT" => "010", "LT" => "011", "GTE" => "100", "LTE" => "101", "OVFL" => "110", "UNCOND" => "111");
+my %conds = ("NEQ" => "0000", "EQ" => "0001", "GT" => "0010", "LT" => "0011", "GTE" => "0100", "LTE" => "0101", "OVFL" => "0110", "UNCOND" => "0111");
 
 
 
@@ -248,6 +248,8 @@ while(<IN>) {
 	  $bits .= parseImmediate($args[1], 12);
 
       }
+	  
+	  # 15 bit immediate for branch isntructions
 
       elsif($instr =~ /^(B)$/) {
 	  
@@ -259,12 +261,11 @@ while(<IN>) {
 
 	  else { $bits .= $conds{$args[0]}; }
 
-	  $bits .= "000000000000000000000000";
+	  $bits .= "000000000000000000";
 
 	  if($args[1] !~ /[a-zA-Z]/) { print STDERR "Error: Invalid label name: \"$args[1]\" in line:\n$_"; exit; }
 
-	  $bits .= "|" . $args[1] . "|9|B|";
-	  
+	  $bits .= "|" . $args[1] . "|15|B|";
 	  
 
       }
@@ -418,8 +419,8 @@ sub binToHex {
 
   $_[0] =~ /(\d{6})(\d{6})(\d{6})(\d{6})(\d{6})(\d{6})(\d{6})(\d{6})/;
   
-  # 0000000 opcode[5] R6 R5 R4 R3 R2 R1
-  my $bitval =  $1 . $2 . "000000000000000000" . $6 . $7 . $8;
+  # 0000000 opcode[5] R6 R5 R4 R3 R2 R1"00000000000000" 
+  my $bitval =  $1 . $2 . $3 . $4. $5 . $6 . $7 . $8;
   my $finhex = "";
   my $start;
   my $end;
