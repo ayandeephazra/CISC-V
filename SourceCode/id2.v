@@ -20,7 +20,7 @@ output reg rf_we_DM_WB;				// set if instruction is writing back to RF
 output reg [5:0] rf_p0_addr;		// normally instr[3:0] but for LHB and SW it is instr[11:8]
 output reg [5:0] rf_p1_addr;		// normally instr[7:4]
 output reg [5:0] rf_dst_addr_DM_WB;	// normally instr[11:8] but for JAL it is forced to 15
-output reg [2:0] alu_func_ID_EX;	// select ALU operation to be performed
+output reg [4:0] alu_func_ID_EX;	// select ALU operation to be performed
 output reg [1:0] src0sel_ID_EX;		// select source for src0 bus
 output reg [1:0] src1sel_ID_EX;		// select source for src1 bus
 output reg dm_re_EX_DM;				// asserted on loads
@@ -45,7 +45,7 @@ reg jmp_reg;
 reg rf_we;
 reg hlt;
 reg [5:0] rf_dst_addr;
-reg [2:0] alu_func;
+reg [4:0] alu_func;
 reg [1:0] src0sel,src1sel;
 reg dm_re;
 reg dm_we;
@@ -209,7 +209,7 @@ always @(instr_IM_ID) begin
   hlt = 0;
   cond_ex = 0;
   
-  case (instr_IM_ID[40:36])
+  case (instr_IM_ID[41:36])
     ADDi : begin
 	  rf_re0 = 1;
 	  rf_re1 = 1;

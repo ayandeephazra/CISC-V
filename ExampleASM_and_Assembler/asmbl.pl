@@ -90,7 +90,11 @@ my %numArgs = ( qw/ADD 3 ADDZ 3 SUB 3 AND 3 NOR 3 SLL 3 SRL 3 SRA 3 LW 3 SW 3 LH
 
 
 
-my %opcode = ( qw/ADD 00000 ADDZ 00001 SUB 00010 AND 00011 NOR 00100 SLL 00101 SRL 00110 SRA 00111 LW 01000 SW 01001 LHB 01010 LLB 01011 B 01100 JAL 01101 JR 01110 HLT 01111/);
+my %opcode = ( qw/ADD 000000 ADDZ 000001 SUB 000010 AND 000011 NOR 000100 SLL 000101 SRL 000110 
+	SRA 000111 LW 001000 SW 001001 LHB 001010 LLB 001011 B 001100 JAL 001101 JR 001110 HLT 001111
+	NAND 010000 OR 010001 NOT 010010 XOR 010011 XNOR 010100 UMULO 010101 UMULC 010110 SMUL 010111
+	ADDI 011000 SUBI 011001 ANDI 011010 NANDI 011011 ORI 011100 NORI 011101 XORI 011110 XNORI 011111
+	UMULI 100000 SMULI 100001 ADDII 100010 SUBII 100011 MULII 100100 DIV 100101 SDIV 100110 DIVI 100111/);
 
 
 
@@ -194,7 +198,7 @@ while(<IN>) {
 	  }
 
       
-	  $bits = "0000000";
+	  $bits = "000000";
       $bits .= "$opcode{$instr}";
 	  $bits .= "000000000000000000";
 
@@ -249,23 +253,23 @@ while(<IN>) {
 
       }
 	  
-	  # 15 bit immediate for branch isntructions
+	  # 16 bit immediate for branch isntructions
 
       elsif($instr =~ /^(B)$/) {
 	  
 	  $bits = "";
-	  $bits .= "0000000";
+	  $bits .= "000000";
       $bits .= "$opcode{$instr}";
 
 	  if(!$conds{$args[0]}) { die("Invalid condition code ($args[0])\n$_\nUse only from {NEQ, EQ, GT, LT, GTE, LTE, OVFL, UNCOND}") }
 
 	  else { $bits .= $conds{$args[0]}; }
 
-	  $bits .= "000000000000000000";
+	  $bits .= "0000000000000000";
 
 	  if($args[1] !~ /[a-zA-Z]/) { print STDERR "Error: Invalid label name: \"$args[1]\" in line:\n$_"; exit; }
 
-	  $bits .= "|" . $args[1] . "|15|B|";
+	  $bits .= "|" . $args[1] . "|16|B|";
 	  
 
       }

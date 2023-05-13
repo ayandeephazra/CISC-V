@@ -2,34 +2,45 @@
 ///////////////////////////////////////
 // Create defines for ALU functions //
 /////////////////////////////////////
-localparam ADD	= 3'b000;
-localparam SUB 	= 3'b001;
-localparam AND	= 3'b010;
-localparam NOR	= 3'b011; 
-localparam SLL	= 3'b100;
-localparam SRL	= 3'b101;
-localparam SRA	= 3'b110;
-localparam LHB  = 3'b111;
+localparam ADD	= 5'b00000;
+localparam SUB 	= 5'b00001;
+localparam AND	= 5'b00010;
+localparam NOR	= 5'b00011; 
+localparam SLL	= 5'b00100;
+localparam SRL	= 5'b00101;
+localparam SRA	= 5'b00110;
+localparam LHB  = 5'b00111;
+//
+localparam NAND = 5'b10000;
+localparam OR = 5'b10001;
+localparam NOT = 5'b10010;
+localparam XOR = 5'b10011;
+localparam XNOR = 5'b10100;
+localparam UMULO = 5'b10101;
+localparam UMULC = 5'b10110;
+localparam SMUL = 5'b10111;
+localparam DIV = 5'b11000;
+localparam SDIV = 5'b11001;
 
 //////////////////////////////////////////
 // Create defines for Opcode encodings //
 ////////////////////////////////////////
-localparam ADDi 	= 4'b0000;
-localparam ADDZi 	= 4'b0001;
-localparam SUBi 	= 4'b0010;
-localparam ANDi		= 4'b0011;
-localparam NORi		= 4'b0100;
-localparam SLLi		= 4'b0101;
-localparam SRLi		= 4'b0110;
-localparam SRAi		= 4'b0111;
-localparam LWi		= 4'b1000;
-localparam SWi		= 4'b1001;
-localparam LHBi		= 4'b1010;
-localparam LLBi		= 4'b1011;
-localparam BRi		= 4'b1100;
-localparam JALi		= 4'b1101;
-localparam JRi		= 4'b1110;
-localparam HLTi		= 4'b1111;
+localparam ADDi 	= 6'b000000;
+localparam ADDZi 	= 6'b000001;
+localparam SUBi 	= 6'b000010;
+localparam ANDi		= 6'b000011;
+localparam NORi		= 6'b000100;
+localparam SLLi		= 6'b000101;
+localparam SRLi		= 6'b000110;
+localparam SRAi		= 6'b000111;
+localparam LWi		= 6'b001000;
+localparam SWi		= 6'b001001;
+localparam LHBi		= 6'b001010;
+localparam LLBi		= 6'b001011;
+localparam BRi		= 6'b001100;
+localparam JALi		= 6'b001101;
+localparam JRi		= 6'b001110;
+localparam HLTi		= 6'b001111;
 
 ////////////////////////////////
 // Encodings for src0 select //
