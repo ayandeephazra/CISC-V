@@ -8,7 +8,7 @@ input [1:0] src0sel_ID_EX,src1sel_ID_EX;		// mux selectors for src0 and src1 bus
 input [15:0] p0;					// port 0 from register file
 input [15:0] p1;					// port 1 from register file
 input [15:0] pc_ID_EX;				// Next PC for JAL instruction
-input [11:0] imm_ID_EX;				// immediate from instruction stream goes on src0
+input [14:0] imm_ID_EX;				// immediate from instruction stream goes on src0
 input [15:0] dst_EX_DM;				// EX_DM results for bypassing RF reads
 input [15:0] dst_DM_WB;				// DM_WB results for bypassing RF reads
 input byp0_EX,byp1_EX;				// From ID, selects EX results to bypass RF sources
