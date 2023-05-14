@@ -4,7 +4,8 @@ module src_mux(clk,stall_ID_EX,stall_EX_DM,src0sel_ID_EX,src1sel_ID_EX,p0,p1,
 
 input clk;
 input stall_ID_EX,stall_EX_DM;					// stall signal
-input [1:0] src0sel_ID_EX,src1sel_ID_EX;		// mux selectors for src0 and src1 busses
+input [2:0] src0sel_ID_EX;	 		// mux selectors for src0 and src1 busses
+input [1:0] src1sel_ID_EX;			// mux selectors for src0 and src1 busses
 input [15:0] p0;					// port 0 from register file
 input [15:0] p1;					// port 1 from register file
 input [15:0] pc_ID_EX;				// Next PC for JAL instruction
@@ -61,10 +62,13 @@ always @(posedge clk)
 assign src0 = (src0sel_ID_EX == RF2SRC0) ? RF_p0 : 
               (src0sel_ID_EX == IMM_BR2SRC0) ? {{7{imm_ID_EX[8]}},imm_ID_EX[8:0]} :		// branch immediates
 			  (src0sel_ID_EX == IMM_JMP2SRC0) ? {{4{imm_ID_EX[11]}},imm_ID_EX[11:0]} :	// JMP immediates
-              {{12{imm_ID_EX[3]}},imm_ID_EX[3:0]};		// for address immediates for DM operations
+			  (src0sel_ID_EX == IMM2SRC0_6BZE) ? {10'b0,imm_ID_EX[5:0]} : 				// Immediate instructions
+			  (src0sel_ID_EX == IMM2SRC0_6BSE) ? {{10{imm_ID_EX[5]}},imm_ID_EX[5:0]} : 	// SMULI
+              {{12{imm_ID_EX[3]}},imm_ID_EX[3:0]};										// for address immediates for DM operations
 
 assign src1 = (src1sel_ID_EX == RF2SRC1) ? RF_p1 : 
               (src1sel_ID_EX == NPC2SRC1) ? pc_ID_EX :	// for JAL
+			  (src0sel_ID_EX == IMM2SRC1_6BZE) ? {10'b0,imm_ID_EX[11:6]} : 	
 			  {{8{imm_ID_EX[7]}},imm_ID_EX[7:0]};			// for LHB/LLB (sign extended 8-bit immediate
 			  
 endmodule

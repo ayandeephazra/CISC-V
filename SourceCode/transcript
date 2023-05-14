@@ -56,3 +56,5 @@ run -all
 # ** Note: $stop    : C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/cpu_tb.sv(21)
 #    Time: 20001 ps  Iteration: 1  Instance: /cpu_tb
 # Break in Module cpu_tb at C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/cpu_tb.sv line 21
+# End time: 02:17:22 on May 14,2023, Elapsed time: 2:54:35
+# Errors: 0, Warnings: 0

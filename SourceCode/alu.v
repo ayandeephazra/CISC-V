@@ -54,6 +54,25 @@ assign sum_sat = (sat_pos) ? 16'h7fff :
 				 sum;
 				 
 assign ov = sat_pos | sat_neg;
+
+
+///////////////////////////
+// Now for signed multpl//
+/////////////////////////
+wire signed [7:0] smul0 = src0[7:0];
+wire signed [7:0] smul1 = src1[7:0];
+wire signed [15:0] smul_res;
+assign smul_res = smul0 * smul1;
+
+
+//////////////////////////////////
+// Now for constrained u multpl//
+////////////////////////////////
+wire [7:0] umulc0 = src0[7:0];
+wire [7:0] umulc1 = src1[7:0];
+wire [15:0] umulc_res;
+assign umulc_res = umulc0 * umulc1;
+				 
 				 
 ///////////////////////////
 // Now for left shifter //
@@ -79,7 +98,15 @@ assign dst = (func==AND) ? src1 & src0 :
 			 (func==NOR) ? ~(src1 | src0) :
 			 (func==SLL) ? shft_l :
 			 ((func==SRL) || (func==SRA)) ? shft_r :
-			 (func==LHB) ? {src1[7:0],src0[7:0]} : sum_sat;	 
+			 (func==LHB) ? {src1[7:0],src0[7:0]} : 
+			 (func == NAND) ? ~(src1 & src0):
+			 (func == OR) ? src1 | src0:
+			 (func == NOT) ? ~src0: 
+			 (func == XOR) ? (src1 ^ src0):
+			 (func == XNOR) ? ~(src1 ^ src0):
+			 (func == UMULO) ? src0 * src1 :
+			 (func == UMULC) ? umulc_res:
+			 (func == SMUL) ? smul_res: sum_sat;	 
 			 
 assign zr = ~|dst;
 assign neg = dst[15];

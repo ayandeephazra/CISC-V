@@ -22,8 +22,8 @@ wire [15:0] p0,p1;				// read ports from RF
 wire [5:0] rf_p0_addr;			// address for port 0 reads
 wire [5:0] rf_p1_addr;			// address for port 1 reads
 wire [5:0] rf_dst_addr_DM_WB;	// address for RF write port
-wire [2:0] alu_func_ID_EX;		// specifies operation ALU should perform
-wire [1:0] src0sel_ID_EX;		// select for src0 bus
+wire [4:0] alu_func_ID_EX;		// specifies operation ALU should perform
+wire [2:0] src0sel_ID_EX;		// select for src0 bus
 wire [1:0] src1sel_ID_EX;		// select for src1 bus
 wire [2:0] cc_ID_EX;			// condition code pipeline from instr[11:9]
 wire [15:0] p0_EX_DM;			// data to be stored for SW

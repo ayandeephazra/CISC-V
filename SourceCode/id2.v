@@ -21,7 +21,7 @@ output reg [5:0] rf_p0_addr;		// normally instr[3:0] but for LHB and SW it is in
 output reg [5:0] rf_p1_addr;		// normally instr[7:4]
 output reg [5:0] rf_dst_addr_DM_WB;	// normally instr[11:8] but for JAL it is forced to 15
 output reg [4:0] alu_func_ID_EX;	// select ALU operation to be performed
-output reg [1:0] src0sel_ID_EX;		// select source for src0 bus
+output reg [2:0] src0sel_ID_EX;		// select source for src0 bus
 output reg [1:0] src1sel_ID_EX;		// select source for src1 bus
 output reg dm_re_EX_DM;				// asserted on loads
 output reg dm_we_EX_DM;				// asserted on stores
@@ -311,6 +311,193 @@ always @(instr_IM_ID) begin
 	end
 	HLTi : begin
 	  hlt = 1;
+	end
+	
+	NANDi : begin
+	  rf_re0 = 1;
+	  rf_re1 = 1;
+	  rf_we = 1;
+      alu_func = NAND;
+	  clk_z = 1;
+	end
+	ORi : begin
+	  rf_re0 = 1;
+	  rf_re1 = 1;
+	  rf_we = 1;
+      alu_func = OR;
+	  clk_z = 1;
+	end
+	NOTi : begin
+	  rf_re0 = 1;
+	  rf_re1 = 0;
+	  rf_we = 1;
+      alu_func = NOT;
+	  clk_z = 1;
+	end
+	XORi :  begin
+	  rf_re0 = 1;
+	  rf_re1 = 1;
+	  rf_we = 1;
+      alu_func = XOR;
+	  clk_z = 1;
+	end
+	XNORi : begin
+	  rf_re0 = 1;
+	  rf_re1 = 1;
+	  rf_we = 1;
+      alu_func = XNOR;
+	  clk_z = 1;
+	end
+	UMULOi :  begin
+	  rf_re0 = 1;
+	  rf_re1 = 1;
+	  rf_we = 1;
+      alu_func = UMULO;
+	  clk_z = 1;
+	  clk_nv = 1;
+	end
+	UMULCi : begin
+	  rf_re0 = 1;
+	  rf_re1 = 1;
+	  rf_we = 1;
+      alu_func = UMULC;
+	  clk_z = 1;
+	  clk_nv = 1;
+	end
+    SMULi : begin
+	  rf_re0 = 1;
+	  rf_re1 = 1;
+	  rf_we = 1;
+      alu_func = SMUL;
+	  clk_z = 1;
+	  clk_nv = 1;
+	end
+	//ADDI 011000 SUBI 011001 ANDI 011010 NANDI 011011 ORI 011100 NORI 011101 XORI 011110 XNORI 011111
+	ADDIi : begin
+	  rf_re0 = 1;					// read from reg 
+	  src0sel = IMM2SRC0_6BZE;		// access 6-bit ZE immediate
+	  rf_we = 1;					// write as normal to a reg
+	  alu_func = ADD;				// use the "add" alu functionality but change the src muxes to get from immediates rather than reg file
+      clk_z = 1;                    // include zero flags
+      clk_nv = 1;					// include overflow or neg flags
+	end	
+	SUBIi : begin
+	  rf_re0 = 1;					// read from reg 
+	  src0sel = IMM2SRC0_6BZE;		// access 6-bit ZE immediate
+	  rf_we = 1;					// write as normal to a reg
+	  alu_func = SUB;				// use the "sub" alu functionality but change the src muxes to get from immediates rather than reg file
+      clk_z = 1;                    // include zero flags
+      clk_nv = 1;					// include overflow or neg flags
+	end
+	ANDIi : begin
+	  rf_re0 = 1;					// read from reg 
+	  src0sel = IMM2SRC0_6BZE;		// access 6-bit ZE immediate
+	  rf_we = 1;					// write as normal to a reg
+	  alu_func = AND;				// use the "and" alu functionality but change the src muxes to get from immediates rather than reg file
+      clk_z = 1;                    // include zero flags
+      clk_nv = 1;					// include overflow or neg flags
+	end
+	NANDIi : begin
+	  rf_re0 = 1;					// read from reg 
+	  src0sel = IMM2SRC0_6BZE;		// access 6-bit ZE immediate
+	  rf_we = 1;					// write as normal to a reg
+	  alu_func = NAND;				// use the "nand" alu functionality but change the src muxes to get from immediates rather than reg file
+      clk_z = 1;                    // include zero flags
+      clk_nv = 1;					// include overflow or neg flags
+	end
+	ORIi : begin
+	  rf_re0 = 1;					// read from reg 
+	  src0sel = IMM2SRC0_6BZE;		// access 6-bit ZE immediate
+	  rf_we = 1;					// write as normal to a reg
+	  alu_func = OR;				// use the "or" alu functionality but change the src muxes to get from immediates rather than reg file
+      clk_z = 1;                    // include zero flags
+      clk_nv = 1;					// include overflow or neg flags
+	end
+	NORIi : begin
+	  rf_re0 = 1;					// read from reg 
+	  src0sel = IMM2SRC0_6BZE;		// access 6-bit ZE immediate
+	  rf_we = 1;					// write as normal to a reg
+	  alu_func = NOR;				// use the "nor" alu functionality but change the src muxes to get from immediates rather than reg file
+      clk_z = 1;                    // include zero flags
+      clk_nv = 1;					// include overflow or neg flags
+	end
+	XORIi : begin
+	  rf_re0 = 1;					// read from reg 
+	  src0sel = IMM2SRC0_6BZE;		// access 6-bit ZE immediate
+	  rf_we = 1;					// write as normal to a reg
+	  alu_func = XOR;				// use the "xor" alu functionality but change the src muxes to get from immediates rather than reg file
+      clk_z = 1;                    // include zero flags
+      clk_nv = 1;					// include overflow or neg flags
+	end
+	XNORIi : begin
+	  rf_re0 = 1;					// read from reg 
+	  src0sel = IMM2SRC0_6BZE;		// access 6-bit ZE immediate
+	  rf_we = 1;					// write as normal to a reg
+	  alu_func = XNOR;				// use the "xnor" alu functionality but change the src muxes to get from immediates rather than reg file
+      clk_z = 1;                    // include zero flags
+      clk_nv = 1;					// include overflow or neg flags
+	end
+	//UMULI 100000 SMULI 100001 ADDII 100010 SUBII 100011 MULII 100100 DIV 100101 SDIV 100110 DIVI 100111
+	UMULIi : begin
+	  rf_re0 = 1;					// read from reg 
+	  src0sel = IMM2SRC0_6BZE;		// access 6-bit ZE immediate
+	  rf_we = 1;					// write as normal to a reg
+	  alu_func = UMULC;				// use the "UMULC" alu functionality but change the src muxes to get from immediates rather than reg file
+      clk_z = 1;                    // include zero flags
+      clk_nv = 1;					// include overflow or neg flags
+	end
+	SMULIi : begin
+	  rf_re0 = 1;					// read from reg 
+	  src0sel = IMM2SRC0_6BSE;		// access 6-bit SE immediate
+	  rf_we = 1;					// write as normal to a reg
+	  alu_func = SMUL;				// use the "SMULI" alu functionality but change the src muxes to get from immediates rather than reg file
+      clk_z = 1;                    // include zero flags
+      clk_nv = 1;					// include overflow or neg flags
+	end
+	ADDIIi : begin
+	  src1sel = IMM2SRC1_6BSE;		// access 6-bit SE immediate 
+	  src0sel = IMM2SRC0_6BSE;		// access 6-bit SE immediate
+	  rf_we = 1;					// write as normal to a reg
+	  alu_func = ADD;				// use the "ADD" alu functionality but change the src muxes to get from immediates rather than reg file
+      clk_z = 1;                    // include zero flags
+      clk_nv = 1;					// include overflow or neg flags
+	end
+	SUBIIi : begin
+	  src1sel = IMM2SRC1_6BSE;		// access 6-bit SE immediate 
+	  src0sel = IMM2SRC0_6BSE;		// access 6-bit SE immediate
+	  rf_we = 1;					// write as normal to a reg
+	  alu_func = SUB;				// use the "SUB" alu functionality but change the src muxes to get from immediates rather than reg file
+      clk_z = 1;                    // include zero flags
+      clk_nv = 1;					// include overflow or neg flags
+	end
+	MULIIi : begin
+	  src1sel = IMM2SRC1_6BSE;		// access 6-bit SE immediate 
+	  src0sel = IMM2SRC0_6BSE;		// access 6-bit SE immediate
+	  rf_we = 1;					// write as normal to a reg
+	  alu_func = UMULC;				// use the "umulc" alu functionality but change the src muxes to get from immediates rather than reg file
+      clk_z = 1;                    // include zero flags
+      clk_nv = 1;					// include overflow or neg flags
+	end
+	DIVi : begin
+	  rf_re0 = 1;
+	  rf_re1 = 1;
+	  rf_we = 1;
+      alu_func = DIV;
+	  clk_z = 1;
+	end
+	SDIVi : begin
+	  rf_re0 = 1;
+	  rf_re1 = 1;
+	  rf_we = 1;
+      alu_func = SDIV;
+	  clk_z = 1;
+	end
+	DIVIi : begin
+	  rf_re0 = 1;
+	  rf_re1 = 1;
+	  rf_we = 1;
+      alu_func = DIV;
+	  clk_z = 1;
 	end
 	
   endcase

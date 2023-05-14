@@ -86,9 +86,10 @@ my %conds = ("NEQ" => "0000", "EQ" => "0001", "GT" => "0010", "LT" => "0011", "G
 
 
 
-my %numArgs = ( qw/ADD 3 ADDZ 3 SUB 3 AND 3 NOR 3 SLL 3 SRL 3 SRA 3 LW 3 SW 3 LHB 2 LLB 2 B 2 JAL 1 JR 1 HLT 0/);
-
-
+my %numArgs = ( qw/ADD 3 ADDZ 3 SUB 3 AND 3 NOR 3 NAND 3 OR 3 NOT 2 XOR 3 XNOR 3 UMULO 3
+		SLL 3 UMULC 3 SMUL 3 SRL 3 SRA 3 LW 3 SW 3 LHB 2 LLB 2 B 2 JAL 1 JR 1 HLT 0
+		ADDI 3 SUBI 3 ANDI 3 NANDI 3 ORI 3 NORI 3 XORI 3 XNORI 3 UMULI 3 SMULI 3
+		ADDII 3 SUBII 3 MULII 3 DIV 3 SDIV 3 DIVI 3/);
 
 my %opcode = ( qw/ADD 000000 ADDZ 000001 SUB 000010 AND 000011 NOR 000100 SLL 000101 SRL 000110 
 	SRA 000111 LW 001000 SW 001001 LHB 001010 LLB 001011 B 001100 JAL 001101 JR 001110 HLT 001111
@@ -211,9 +212,20 @@ while(<IN>) {
 
       }
 
-      
+       if($instr =~ /^(NOT)$/) {
 
-      if($instr =~ /^(AND|NOR|ADD|ADDZ|SUB)$/) {
+	  foreach my $reg ($args[0], $args[1]) {
+
+	      if(!$regs{$reg}) { die("Bad register ($reg)\n$_") }
+
+	      $bits .= $regs{$reg};
+
+	  }
+	   $bits .= "000000";
+
+      }
+
+      if($instr =~ /^(AND|NOR|ADD|ADDZ|SUB|NAND|OR|XOR|XNOR|UMULO|UMULC|SMUL|DIV|SDIV)$/) {
 
 	  foreach my $reg ($args[0], $args[1], $args[2]) {
 
@@ -225,7 +237,7 @@ while(<IN>) {
 
       }
 
-      elsif($instr =~ /^(SRA|SLL|SRL|LW|SW)$/) {
+      elsif($instr =~ /^(SRA|SLL|SRL|LW|SW|ADDI|SUBI|ANDI|NANDI|ORI|NORI|XORI|XNORI|UMULI|SMULI|DIVI)$/) {
 
 	  foreach my $reg ($args[0], $args[1]) {
 
@@ -237,6 +249,20 @@ while(<IN>) {
 
 	  $bits .= parseImmediate($args[2], 6);
 
+      }
+	  
+	  elsif($instr =~ /^(ADDII|SUBII|MULII)$/) {
+
+	  foreach my $reg ($args[0]) {
+
+	      if(!$regs{$reg}) { die("Bad register ($reg)\n$_") }
+
+	      $bits .= $regs{$reg};
+
+	  }
+
+	  $bits .= parseImmediate($args[1], 6);
+      $bits .= parseImmediate($args[2], 6);
       }
 
       elsif($instr =~ /^(LHB|LLB)$/) {
