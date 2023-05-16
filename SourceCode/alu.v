@@ -62,6 +62,7 @@ assign ov = sat_pos | sat_neg;
 wire signed [7:0] smul0 = src0[7:0];
 wire signed [7:0] smul1 = src1[7:0];
 wire signed [15:0] smul_res;
+
 assign smul_res = smul0 * smul1;
 
 
@@ -71,8 +72,31 @@ assign smul_res = smul0 * smul1;
 wire [7:0] umulc0 = src0[7:0];
 wire [7:0] umulc1 = src1[7:0];
 wire [15:0] umulc_res;
+
 assign umulc_res = umulc0 * umulc1;
-				 
+
+
+///////////////////////////
+// Now for signed divi  //
+/////////////////////////
+wire [15:0] sdiv0 = src0[15:0];
+wire [15:0] sdiv1 = src1[15:0];
+wire [15:0] sdiv_res;
+wire [15:0] sdiv_corr;
+
+
+wire diff_sign;
+wire [1:0] toptwo;
+assign toptwo = {src0[15], src1[15]};
+assign diff_sign = (toptwo == 2'b00)? 0:
+					(toptwo == 2'b01)? 1:
+					(toptwo == 2'b10)? 1: 0;
+					//(toptwo == 2'b11)? 0;
+wire [15:0] sdiv0_mod = (sdiv0[15])? ~sdiv0 + 1: sdiv0;
+wire [15:0] sdiv1_mod = (sdiv1[15])? ~sdiv1 + 1: sdiv1;
+assign sdiv_res = sdiv1_mod / sdiv0_mod;
+
+assign sdiv_corr = (diff_sign)? ~sdiv_res + 1: sdiv_res;
 				 
 ///////////////////////////
 // Now for left shifter //
@@ -94,11 +118,11 @@ assign shft_r = (shamt[3]) ? {{8{shft_in}},shft_r4[15:8]} : shft_r4;
 ///////////////////////////////////////////
 // Now for multiplexing function of ALU //
 /////////////////////////////////////////
-assign dst = (func==AND) ? src1 & src0 :
-			 (func==NOR) ? ~(src1 | src0) :
-			 (func==SLL) ? shft_l :
-			 ((func==SRL) || (func==SRA)) ? shft_r :
-			 (func==LHB) ? {src1[7:0],src0[7:0]} : 
+assign dst = (func == AND) ? src1 & src0 :
+			 (func == NOR) ? ~(src1 | src0) :
+			 (func == SLL) ? shft_l :
+			 ((func == SRL) || (func == SRA)) ? shft_r :
+			 (func == LHB) ? {src1[7:0],src0[7:0]} : 
 			 (func == NAND) ? ~(src1 & src0):
 			 (func == OR) ? src1 | src0:
 			 (func == NOT) ? ~src0: 
@@ -107,7 +131,8 @@ assign dst = (func==AND) ? src1 & src0 :
 			 (func == UMULO) ? src0 * src1 :
 			 (func == UMULC) ? umulc_res:
 			 (func == SMUL) ? smul_res: 
-			 (func == DIV) ? (src1 / src0) : sum_sat;	 
+			 (func == DIV) ? (src1 / src0) : 
+			 (func == SDIV) ? sdiv_corr : sum_sat;	 
 			 
 assign zr = ~|dst;
 assign neg = dst[15];

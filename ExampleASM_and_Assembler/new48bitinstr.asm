@@ -1,3 +1,3 @@
-LLB R3, 0x0A
-LLB R4, 0X02
-divi r5, r3, 2
+LLB R3, -10
+LLB R4, -2
+sdiv r5, r3, r4

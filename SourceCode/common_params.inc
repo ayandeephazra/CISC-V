@@ -44,7 +44,7 @@ localparam HLTi		= 6'b001111;
 
 // NAND 010000 OR 010001 NOT 010010 XOR 010011 XNOR 010100 UMULO 010101 UMULC 010110 
 // SMUL 010111 ADDI 011000 SUBI 011001 ANDI 011010 NANDI 011011 ORI 011100 NORI 011101  
-// XORI 011110 XNORI 011111 UMULI 100000 
+// XORI 011110 XNORI 011111 
 
 localparam NANDi 	= 6'b010000;
 localparam ORi 		= 6'b010001;
@@ -62,10 +62,11 @@ localparam ORIi		= 6'b011100;
 localparam NORIi	= 6'b011101;
 localparam XORIi	= 6'b011110;
 localparam XNORIi	= 6'b011111;
+
+// UMULI 100000 SMULI 100001 ADDII 100010 SUBII 100011 MULII 100100 DIV 100101 
+// SDIV 100110 DIVI 100111
+
 localparam UMULIi 	= 6'b100000;
-
-//	SMULI 100001 ADDII 100010 SUBII 100011 MULII 100100 DIV 100101 SDIV 100110 DIVI 100111
-
 localparam SMULIi 	= 6'b100001;
 localparam ADDIIi 	= 6'b100010;
 localparam SUBIIi	= 6'b100011;
@@ -74,13 +75,6 @@ localparam DIVi		= 6'b100101;
 localparam SDIVi	= 6'b100110;
 localparam DIVIi	= 6'b100111;
 //localparam DIVIi	= 6'b101000;
-//localparam SWi		= 6'b101001;
-//localparam LHBi		= 6'b101010;
-//localparam LLBi		= 6'b101011;
-//localparam BRi		= 6'b101100;
-//localparam JALi		= 6'b101101;
-//localparam JRi		= 6'b101110;
-//localparam HLTi		= 6'b101111;
 
 ////////////////////////////////
 // Encodings for src0 select //
