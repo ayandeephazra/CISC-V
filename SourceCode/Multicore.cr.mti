@@ -54,6 +54,13 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	rst_synch
 
+} {} {}} {C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/src_mux.v} {1 {vlog -work work -stats=none {C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/src_mux.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module src_mux
+
+Top level modules:
+	src_mux
+
 } {} {}} {C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/rf_mem.sv} {1 {vlog -work work -sv -stats=none {C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/rf_mem.sv}
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module rf_mem
@@ -61,12 +68,12 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	rf_mem
 
-} {} {}} {C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/src_mux.v} {1 {vlog -work work -stats=none {C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/src_mux.v}
+} {} {}} {C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/alu.v} {1 {vlog -work work -stats=none {C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/alu.v}
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module src_mux
+-- Compiling module alu
 
 Top level modules:
-	src_mux
+	alu
 
 } {} {}} {C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/data_mem.sv} {1 {vlog -work work -sv -stats=none {C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/data_mem.sv}
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016

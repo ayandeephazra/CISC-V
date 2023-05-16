@@ -42,37 +42,38 @@ localparam JALi		= 6'b001101;
 localparam JRi		= 6'b001110;
 localparam HLTi		= 6'b001111;
 
-// NAND 010000 OR 010001 NOT 010010 XOR 010011 XNOR 010100 UMULO 010101 UMULC 010110 SMUL 010111
-// ADDI 011000 SUBI 011001 ANDI 011010 NANDI 011011 ORI 011100 NORI 011101 XORI 011110 XNORI 011111
+// NAND 010000 OR 010001 NOT 010010 XOR 010011 XNOR 010100 UMULO 010101 UMULC 010110 
+// SMUL 010111 ADDI 011000 SUBI 011001 ANDI 011010 NANDI 011011 ORI 011100 NORI 011101  
+// XORI 011110 XNORI 011111 UMULI 100000 
 
 localparam NANDi 	= 6'b010000;
 localparam ORi 		= 6'b010001;
 localparam NOTi 	= 6'b010010;
-//localparam ANDi		= 6'b010011;
-localparam XORi		= 6'b010100;
-localparam XNORi	= 6'b010101;
-localparam UMULOi	= 6'b010110;
-localparam UMULCi	= 6'b010111;
-localparam SMULi	= 6'b011000;
-localparam ADDIi	= 6'b011001;
-localparam SUBIi	= 6'b011010;
-localparam ANDIi	= 6'b011011;
-localparam NANDIi	= 6'b011100;
-localparam ORIi		= 6'b011101;
-localparam NORIi	= 6'b011110;
-localparam XORIi	= 6'b011111;
-localparam XNORIi 	= 6'b100000;
+localparam XORi		= 6'b010011;
+localparam XNORi	= 6'b010100;
+localparam UMULOi	= 6'b010101;
+localparam UMULCi	= 6'b010110;
+localparam SMULi	= 6'b010111;
+localparam ADDIi	= 6'b011000;
+localparam SUBIi	= 6'b011001;
+localparam ANDIi	= 6'b011010;
+localparam NANDIi	= 6'b011011;
+localparam ORIi		= 6'b011100;
+localparam NORIi	= 6'b011101;
+localparam XORIi	= 6'b011110;
+localparam XNORIi	= 6'b011111;
+localparam UMULIi 	= 6'b100000;
 
-//	UMULI 100000 SMULI 100001 ADDII 100010 SUBII 100011 MULII 100100 DIV 100101 SDIV 100110 DIVI 100111
+//	SMULI 100001 ADDII 100010 SUBII 100011 MULII 100100 DIV 100101 SDIV 100110 DIVI 100111
 
-localparam UMULIi 	= 6'b100001;
-localparam SMULIi 	= 6'b100010;
-localparam ADDIIi	= 6'b100011;
-localparam SUBIIi	= 6'b100100;
-localparam MULIIi	= 6'b100101;
-localparam DIVi		= 6'b100110;
-localparam SDIVi	= 6'b100111;
-localparam DIVIi	= 6'b101000;
+localparam SMULIi 	= 6'b100001;
+localparam ADDIIi 	= 6'b100010;
+localparam SUBIIi	= 6'b100011;
+localparam MULIIi	= 6'b100100;
+localparam DIVi		= 6'b100101;
+localparam SDIVi	= 6'b100110;
+localparam DIVIi	= 6'b100111;
+//localparam DIVIi	= 6'b101000;
 //localparam SWi		= 6'b101001;
 //localparam LHBi		= 6'b101010;
 //localparam LLBi		= 6'b101011;

@@ -46,7 +46,8 @@ reg rf_we;
 reg hlt;
 reg [5:0] rf_dst_addr;
 reg [4:0] alu_func;
-reg [1:0] src0sel,src1sel;
+reg [2:0] src0sel;
+reg [1:0] src1sel;
 reg dm_re;
 reg dm_we;
 reg clk_z;
@@ -275,12 +276,12 @@ always @(instr_IM_ID) begin
 	  src0sel = IMM2SRC0;					// sign extended address offset
 	  rf_re1 = 1;							// read register that contains address base
 	  rf_re0 = 1;							// read register to be stored
-	  rf_p0_addr = instr_IM_ID[11:8];		// register to be stored is encoded in [11:8]
+	  rf_p0_addr = instr_IM_ID[17:12];		// register to be stored is encoded in [11:8]
 	  dm_we = 1;
 	end
 	LHBi : begin
 	  rf_re0 = 1;
-	  rf_p0_addr = instr_IM_ID[11:8];		// need to preserve lower byte, access it so can be recycled
+	  rf_p0_addr = instr_IM_ID[17:12];		// [11:8] need to preserve lower byte, access it so can be recycled
 	  src1sel = IMM2SRC1;					// access 8-bit immediate.
 	  rf_we = 1;
 	  alu_func = LHB;
@@ -374,7 +375,7 @@ always @(instr_IM_ID) begin
 	end
 	//ADDI 011000 SUBI 011001 ANDI 011010 NANDI 011011 ORI 011100 NORI 011101 XORI 011110 XNORI 011111
 	ADDIi : begin
-	  rf_re0 = 1;					// read from reg 
+	  rf_re1 = 1;					// read from reg 
 	  src0sel = IMM2SRC0_6BZE;		// access 6-bit ZE immediate
 	  rf_we = 1;					// write as normal to a reg
 	  alu_func = ADD;				// use the "add" alu functionality but change the src muxes to get from immediates rather than reg file
@@ -382,7 +383,7 @@ always @(instr_IM_ID) begin
       clk_nv = 1;					// include overflow or neg flags
 	end	
 	SUBIi : begin
-	  rf_re0 = 1;					// read from reg 
+	  rf_re1 = 1;					// read from reg 
 	  src0sel = IMM2SRC0_6BZE;		// access 6-bit ZE immediate
 	  rf_we = 1;					// write as normal to a reg
 	  alu_func = SUB;				// use the "sub" alu functionality but change the src muxes to get from immediates rather than reg file
@@ -390,7 +391,7 @@ always @(instr_IM_ID) begin
       clk_nv = 1;					// include overflow or neg flags
 	end
 	ANDIi : begin
-	  rf_re0 = 1;					// read from reg 
+	  rf_re1 = 1;					// read from reg 
 	  src0sel = IMM2SRC0_6BZE;		// access 6-bit ZE immediate
 	  rf_we = 1;					// write as normal to a reg
 	  alu_func = AND;				// use the "and" alu functionality but change the src muxes to get from immediates rather than reg file
@@ -398,7 +399,7 @@ always @(instr_IM_ID) begin
       clk_nv = 1;					// include overflow or neg flags
 	end
 	NANDIi : begin
-	  rf_re0 = 1;					// read from reg 
+	  rf_re1 = 1;					// read from reg 
 	  src0sel = IMM2SRC0_6BZE;		// access 6-bit ZE immediate
 	  rf_we = 1;					// write as normal to a reg
 	  alu_func = NAND;				// use the "nand" alu functionality but change the src muxes to get from immediates rather than reg file
@@ -406,7 +407,7 @@ always @(instr_IM_ID) begin
       clk_nv = 1;					// include overflow or neg flags
 	end
 	ORIi : begin
-	  rf_re0 = 1;					// read from reg 
+	  rf_re1 = 1;					// read from reg 
 	  src0sel = IMM2SRC0_6BZE;		// access 6-bit ZE immediate
 	  rf_we = 1;					// write as normal to a reg
 	  alu_func = OR;				// use the "or" alu functionality but change the src muxes to get from immediates rather than reg file
@@ -414,7 +415,7 @@ always @(instr_IM_ID) begin
       clk_nv = 1;					// include overflow or neg flags
 	end
 	NORIi : begin
-	  rf_re0 = 1;					// read from reg 
+	  rf_re1 = 1;					// read from reg 
 	  src0sel = IMM2SRC0_6BZE;		// access 6-bit ZE immediate
 	  rf_we = 1;					// write as normal to a reg
 	  alu_func = NOR;				// use the "nor" alu functionality but change the src muxes to get from immediates rather than reg file
@@ -422,7 +423,7 @@ always @(instr_IM_ID) begin
       clk_nv = 1;					// include overflow or neg flags
 	end
 	XORIi : begin
-	  rf_re0 = 1;					// read from reg 
+	  rf_re1 = 1;					// read from reg 
 	  src0sel = IMM2SRC0_6BZE;		// access 6-bit ZE immediate
 	  rf_we = 1;					// write as normal to a reg
 	  alu_func = XOR;				// use the "xor" alu functionality but change the src muxes to get from immediates rather than reg file
@@ -430,7 +431,7 @@ always @(instr_IM_ID) begin
       clk_nv = 1;					// include overflow or neg flags
 	end
 	XNORIi : begin
-	  rf_re0 = 1;					// read from reg 
+	  rf_re1 = 1;					// read from reg 
 	  src0sel = IMM2SRC0_6BZE;		// access 6-bit ZE immediate
 	  rf_we = 1;					// write as normal to a reg
 	  alu_func = XNOR;				// use the "xnor" alu functionality but change the src muxes to get from immediates rather than reg file
@@ -439,7 +440,7 @@ always @(instr_IM_ID) begin
 	end
 	//UMULI 100000 SMULI 100001 ADDII 100010 SUBII 100011 MULII 100100 DIV 100101 SDIV 100110 DIVI 100111
 	UMULIi : begin
-	  rf_re0 = 1;					// read from reg 
+	  rf_re1 = 1;					// read from reg 
 	  src0sel = IMM2SRC0_6BZE;		// access 6-bit ZE immediate
 	  rf_we = 1;					// write as normal to a reg
 	  alu_func = UMULC;				// use the "UMULC" alu functionality but change the src muxes to get from immediates rather than reg file
@@ -447,7 +448,7 @@ always @(instr_IM_ID) begin
       clk_nv = 1;					// include overflow or neg flags
 	end
 	SMULIi : begin
-	  rf_re0 = 1;					// read from reg 
+	  rf_re1 = 1;					// read from reg 
 	  src0sel = IMM2SRC0_6BSE;		// access 6-bit SE immediate
 	  rf_we = 1;					// write as normal to a reg
 	  alu_func = SMUL;				// use the "SMULI" alu functionality but change the src muxes to get from immediates rather than reg file
@@ -455,30 +456,31 @@ always @(instr_IM_ID) begin
       clk_nv = 1;					// include overflow or neg flags
 	end
 	ADDIIi : begin
-	  src1sel = IMM2SRC1_6BSE;		// access 6-bit SE immediate 
-	  src0sel = IMM2SRC0_6BSE;		// access 6-bit SE immediate
+	  src1sel = IMM2SRC1_6BZE;		// access 6-bit SE immediate 
+	  src0sel = IMM2SRC0_6BZE;		// access 6-bit SE immediate
 	  rf_we = 1;					// write as normal to a reg
 	  alu_func = ADD;				// use the "ADD" alu functionality but change the src muxes to get from immediates rather than reg file
       clk_z = 1;                    // include zero flags
       clk_nv = 1;					// include overflow or neg flags
 	end
 	SUBIIi : begin
-	  src1sel = IMM2SRC1_6BSE;		// access 6-bit SE immediate 
-	  src0sel = IMM2SRC0_6BSE;		// access 6-bit SE immediate
+	  src1sel = IMM2SRC1_6BZE;		// access 6-bit SE immediate 
+	  src0sel = IMM2SRC0_6BZE;		// access 6-bit SE immediate
 	  rf_we = 1;					// write as normal to a reg
 	  alu_func = SUB;				// use the "SUB" alu functionality but change the src muxes to get from immediates rather than reg file
       clk_z = 1;                    // include zero flags
       clk_nv = 1;					// include overflow or neg flags
 	end
 	MULIIi : begin
-	  src1sel = IMM2SRC1_6BSE;		// access 6-bit SE immediate 
-	  src0sel = IMM2SRC0_6BSE;		// access 6-bit SE immediate
+	  src1sel = IMM2SRC1_6BZE;		// access 6-bit SE immediate 
+	  src0sel = IMM2SRC0_6BZE;		// access 6-bit SE immediate
 	  rf_we = 1;					// write as normal to a reg
 	  alu_func = UMULC;				// use the "umulc" alu functionality but change the src muxes to get from immediates rather than reg file
       clk_z = 1;                    // include zero flags
       clk_nv = 1;					// include overflow or neg flags
 	end
 	DIVi : begin
+	src1sel = RF2SRC1;
 	  rf_re0 = 1;
 	  rf_re1 = 1;
 	  rf_we = 1;
@@ -493,7 +495,7 @@ always @(instr_IM_ID) begin
 	  clk_z = 1;
 	end
 	DIVIi : begin
-	  rf_re0 = 1;
+	  src0sel = IMM2SRC0_6BZE;
 	  rf_re1 = 1;
 	  rf_we = 1;
       alu_func = DIV;

@@ -106,7 +106,8 @@ assign dst = (func==AND) ? src1 & src0 :
 			 (func == XNOR) ? ~(src1 ^ src0):
 			 (func == UMULO) ? src0 * src1 :
 			 (func == UMULC) ? umulc_res:
-			 (func == SMUL) ? smul_res: sum_sat;	 
+			 (func == SMUL) ? smul_res: 
+			 (func == DIV) ? (src1 / src0) : sum_sat;	 
 			 
 assign zr = ~|dst;
 assign neg = dst[15];

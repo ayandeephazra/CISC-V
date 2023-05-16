@@ -1,9 +1,39 @@
 # Reading C:/intelFPGA/18.1/modelsim_ase/tcl/vsim/pref.tcl
 # OpenFile {C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/Multicore.mpf}
 # Loading project Multicore
+# Compile of src_mux.v was successful.
+# Compile of alu.v was successful.
+# Compile of br_bool.v was successful.
+# Compile of cpu.v was successful.
+# Compile of cpu_tb.sv was successful.
+# Compile of data_mem.sv was successful.
+# Compile of dst_mux.v was successful.
+# Compile of id.v was successful.
+# Compile of id2.v failed with 1 errors.
+# Compile of instr_mem.sv was successful.
+# Compile of prgm_cntr.v was successful.
+# Compile of rf.sv was successful.
+# Compile of rf_mem.sv was successful.
+# Compile of rst_synch.sv was successful.
+# 14 compiles, 1 failed with 1 error.
+# Compile of src_mux.v was successful.
+# Compile of alu.v was successful.
+# Compile of br_bool.v was successful.
+# Compile of cpu.v was successful.
+# Compile of cpu_tb.sv was successful.
+# Compile of data_mem.sv was successful.
+# Compile of dst_mux.v was successful.
+# Compile of id.v was successful.
+# Compile of id2.v was successful with warnings.
+# Compile of instr_mem.sv was successful.
+# Compile of prgm_cntr.v was successful.
+# Compile of rf.sv was successful.
+# Compile of rf_mem.sv was successful.
+# Compile of rst_synch.sv was successful.
+# 14 compiles, 0 failed with no errors.
 vsim -gui work.cpu_tb
 # vsim -gui work.cpu_tb 
-# Start time: 23:22:47 on May 13,2023
+# Start time: 10:54:01 on May 16,2023
 # Loading sv_std.std
 # Loading work.cpu_tb
 # Loading work.cpu
@@ -17,26 +47,134 @@ vsim -gui work.cpu_tb
 # Loading work.DM
 # Loading work.dst_mux
 # Loading work.br_bool
-add wave -position insertpoint sim:/cpu_tb/iCPU/iRF/RF0/*
+add wave -position insertpoint  \
+sim:/cpu_tb/iCPU/iRF/RF0/mem
 run -all
 # ** Note: $stop    : C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/cpu_tb.sv(21)
 #    Time: 20001 ps  Iteration: 1  Instance: /cpu_tb
 # Break in Module cpu_tb at C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/cpu_tb.sv line 21
-add wave -position insertpoint sim:/cpu_tb/iCPU/iDSTMUX/*
 restart
 run -all
 # ** Note: $stop    : C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/cpu_tb.sv(21)
 #    Time: 20001 ps  Iteration: 1  Instance: /cpu_tb
 # Break in Module cpu_tb at C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/cpu_tb.sv line 21
-add wave -position insertpoint  \
-sim:/cpu_tb/iCPU/iALU/dst_EX_DM
+add wave -position insertpoint sim:/cpu_tb/iCPU/ISRCMUX/*
 restart
-run -continue
+run -all
+# ** Note: $stop    : C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/cpu_tb.sv(21)
+#    Time: 20001 ps  Iteration: 1  Instance: /cpu_tb
+# Break in Module cpu_tb at C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/cpu_tb.sv line 21
+restart
+run -all
+# ** Note: $stop    : C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/cpu_tb.sv(21)
+#    Time: 20001 ps  Iteration: 1  Instance: /cpu_tb
+# Break in Module cpu_tb at C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/cpu_tb.sv line 21
+restart
+run -all
+# ** Note: $stop    : C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/cpu_tb.sv(21)
+#    Time: 20001 ps  Iteration: 1  Instance: /cpu_tb
+# Break in Module cpu_tb at C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/cpu_tb.sv line 21
+# Compile of src_mux.v was successful.
+# Compile of alu.v was successful.
+# Compile of br_bool.v was successful.
+# Compile of cpu.v was successful.
+# Compile of cpu_tb.sv was successful.
+# Compile of data_mem.sv was successful.
+# Compile of dst_mux.v was successful.
+# Compile of id.v was successful.
+# Compile of id2.v was successful with warnings.
+# Compile of instr_mem.sv was successful.
+# Compile of prgm_cntr.v was successful.
+# Compile of rf.sv was successful.
+# Compile of rf_mem.sv was successful.
+# Compile of rst_synch.sv was successful.
+# 14 compiles, 0 failed with no errors.
+restart
+# Loading work.cpu_tb
+# Loading work.cpu
+# Loading work.pc
+# Loading work.IM
+# Loading work.id2
+# Loading work.rf
+# Loading work.rf_mem
+# Loading work.src_mux
+# Loading work.alu
+# Loading work.DM
+# Loading work.dst_mux
+# Loading work.br_bool
+run -all
+# ** Note: $stop    : C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/cpu_tb.sv(21)
+#    Time: 20001 ps  Iteration: 1  Instance: /cpu_tb
+# Break in Module cpu_tb at C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/cpu_tb.sv line 21
+# Compile of src_mux.v was successful.
+# Compile of alu.v was successful.
+# Compile of br_bool.v was successful.
+# Compile of cpu.v was successful.
+# Compile of cpu_tb.sv was successful.
+# Compile of data_mem.sv was successful.
+# Compile of dst_mux.v was successful.
+# Compile of id.v was successful.
+# Compile of id2.v was successful with warnings.
+# Compile of instr_mem.sv was successful.
+# Compile of prgm_cntr.v was successful.
+# Compile of rf.sv was successful.
+# Compile of rf_mem.sv was successful.
+# Compile of rst_synch.sv was successful.
+# 14 compiles, 0 failed with no errors.
+restart
+# Loading work.cpu_tb
+# Loading work.cpu
+# Loading work.pc
+# Loading work.IM
+# Loading work.id2
+# Loading work.rf
+# Loading work.rf_mem
+# Loading work.src_mux
+# Loading work.alu
+# Loading work.DM
+# Loading work.dst_mux
+# Loading work.br_bool
+run -all
+# ** Note: $stop    : C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/cpu_tb.sv(21)
+#    Time: 20001 ps  Iteration: 1  Instance: /cpu_tb
+# Break in Module cpu_tb at C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/cpu_tb.sv line 21
+restart
+# Compile of src_mux.v was successful.
+# Compile of alu.v was successful.
+# Compile of br_bool.v was successful.
+# Compile of cpu.v was successful.
+# Compile of cpu_tb.sv was successful.
+# Compile of data_mem.sv was successful.
+# Compile of dst_mux.v was successful.
+# Compile of id.v was successful.
+# Compile of id2.v was successful with warnings.
+# Compile of instr_mem.sv was successful.
+# Compile of prgm_cntr.v was successful.
+# Compile of rf.sv was successful.
+# Compile of rf_mem.sv was successful.
+# Compile of rst_synch.sv was successful.
+# 14 compiles, 0 failed with no errors.
+restart
+# Loading work.cpu_tb
+# Loading work.cpu
+# Loading work.pc
+# Loading work.IM
+# Loading work.id2
+# Loading work.rf
+# Loading work.rf_mem
+# Loading work.src_mux
+# Loading work.alu
+# Loading work.DM
+# Loading work.dst_mux
+# Loading work.br_bool
+run -all
 # ** Note: $stop    : C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/cpu_tb.sv(21)
 #    Time: 20001 ps  Iteration: 1  Instance: /cpu_tb
 # Break in Module cpu_tb at C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/cpu_tb.sv line 21
 add wave -position insertpoint  \
-sim:/cpu_tb/iCPU/iIM/instr
+sim:/cpu_tb/iCPU/iID/src1sel
+add wave -position insertpoint  \
+sim:/cpu_tb/iCPU/iID/src1sel_ID_EX
 restart
 run -all
 # ** Note: $stop    : C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/cpu_tb.sv(21)
@@ -50,11 +188,182 @@ run -all
 #    Time: 20001 ps  Iteration: 1  Instance: /cpu_tb
 # Break in Module cpu_tb at C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/cpu_tb.sv line 21
 add wave -position insertpoint  \
-sim:/cpu_tb/iCPU/iRF/RF0/mem
+sim:/cpu_tb/iCPU/iID/alu_func
 restart
 run -all
 # ** Note: $stop    : C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/cpu_tb.sv(21)
 #    Time: 20001 ps  Iteration: 1  Instance: /cpu_tb
 # Break in Module cpu_tb at C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/cpu_tb.sv line 21
-# End time: 02:17:22 on May 14,2023, Elapsed time: 2:54:35
-# Errors: 0, Warnings: 0
+# Compile of src_mux.v was successful.
+# Compile of alu.v was successful.
+# Compile of br_bool.v was successful.
+# Compile of cpu.v was successful.
+# Compile of cpu_tb.sv was successful.
+# Compile of data_mem.sv was successful.
+# Compile of dst_mux.v was successful.
+# Compile of id.v was successful.
+# Compile of id2.v was successful with warnings.
+# Compile of instr_mem.sv was successful.
+# Compile of prgm_cntr.v was successful.
+# Compile of rf.sv was successful.
+# Compile of rf_mem.sv was successful.
+# Compile of rst_synch.sv was successful.
+# 14 compiles, 0 failed with no errors.
+restart
+# Loading work.cpu_tb
+# Loading work.cpu
+# Loading work.pc
+# Loading work.IM
+# Loading work.id2
+# Loading work.rf
+# Loading work.rf_mem
+# Loading work.src_mux
+# Loading work.alu
+# Loading work.DM
+# Loading work.dst_mux
+# Loading work.br_bool
+run -all
+# ** Note: $stop    : C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/cpu_tb.sv(21)
+#    Time: 20001 ps  Iteration: 1  Instance: /cpu_tb
+# Break in Module cpu_tb at C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/cpu_tb.sv line 21
+restart
+run -all
+# ** Note: $stop    : C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/cpu_tb.sv(21)
+#    Time: 20001 ps  Iteration: 1  Instance: /cpu_tb
+# Break in Module cpu_tb at C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/cpu_tb.sv line 21
+restart
+# Compile of src_mux.v was successful.
+# Compile of alu.v was successful.
+# Compile of br_bool.v was successful.
+# Compile of cpu.v was successful.
+# Compile of cpu_tb.sv was successful.
+# Compile of data_mem.sv was successful.
+# Compile of dst_mux.v was successful.
+# Compile of id.v was successful.
+# Compile of id2.v was successful with warnings.
+# Compile of instr_mem.sv was successful.
+# Compile of prgm_cntr.v was successful.
+# Compile of rf.sv was successful.
+# Compile of rf_mem.sv was successful.
+# Compile of rst_synch.sv was successful.
+# 14 compiles, 0 failed with no errors.
+restart
+# Loading work.cpu_tb
+# Loading work.cpu
+# Loading work.pc
+# Loading work.IM
+# Loading work.id2
+# Loading work.rf
+# Loading work.rf_mem
+# Loading work.src_mux
+# Loading work.alu
+# Loading work.DM
+# Loading work.dst_mux
+# Loading work.br_bool
+run -all
+# ** Note: $stop    : C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/cpu_tb.sv(21)
+#    Time: 20001 ps  Iteration: 1  Instance: /cpu_tb
+# Break in Module cpu_tb at C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/cpu_tb.sv line 21
+# Compile of src_mux.v was successful.
+# Compile of alu.v was successful.
+# Compile of br_bool.v was successful.
+# Compile of cpu.v was successful.
+# Compile of cpu_tb.sv was successful.
+# Compile of data_mem.sv was successful.
+# Compile of dst_mux.v was successful.
+# Compile of id.v was successful.
+# Compile of id2.v was successful with warnings.
+# Compile of instr_mem.sv was successful.
+# Compile of prgm_cntr.v was successful.
+# Compile of rf.sv was successful.
+# Compile of rf_mem.sv was successful.
+# Compile of rst_synch.sv was successful.
+# 14 compiles, 0 failed with no errors.
+restart
+# Loading work.cpu_tb
+# Loading work.cpu
+# Loading work.pc
+# Loading work.IM
+# Loading work.id2
+# Loading work.rf
+# Loading work.rf_mem
+# Loading work.src_mux
+# Loading work.alu
+# Loading work.DM
+# Loading work.dst_mux
+# Loading work.br_bool
+run -all
+# ** Note: $stop    : C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/cpu_tb.sv(21)
+#    Time: 20001 ps  Iteration: 1  Instance: /cpu_tb
+# Break in Module cpu_tb at C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/cpu_tb.sv line 21
+# Compile of src_mux.v was successful.
+# Compile of alu.v was successful.
+# Compile of br_bool.v was successful.
+# Compile of cpu.v was successful.
+# Compile of cpu_tb.sv was successful.
+# Compile of data_mem.sv was successful.
+# Compile of dst_mux.v was successful.
+# Compile of id.v was successful.
+# Compile of id2.v was successful with warnings.
+# Compile of instr_mem.sv was successful.
+# Compile of prgm_cntr.v was successful.
+# Compile of rf.sv was successful.
+# Compile of rf_mem.sv was successful.
+# Compile of rst_synch.sv was successful.
+# 14 compiles, 0 failed with no errors.
+restart
+# Loading work.cpu_tb
+# Loading work.cpu
+# Loading work.pc
+# Loading work.IM
+# Loading work.id2
+# Loading work.rf
+# Loading work.rf_mem
+# Loading work.src_mux
+# Loading work.alu
+# Loading work.DM
+# Loading work.dst_mux
+# Loading work.br_bool
+run -all
+# ** Note: $stop    : C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/cpu_tb.sv(21)
+#    Time: 20001 ps  Iteration: 1  Instance: /cpu_tb
+# Break in Module cpu_tb at C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/cpu_tb.sv line 21
+# Compile of id2.v was successful with warnings.
+restart
+# Loading work.id2
+run -all
+# ** Note: $stop    : C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/cpu_tb.sv(21)
+#    Time: 20001 ps  Iteration: 1  Instance: /cpu_tb
+# Break in Module cpu_tb at C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/cpu_tb.sv line 21
+# Compile of src_mux.v was successful.
+# Compile of alu.v was successful.
+# Compile of br_bool.v was successful.
+# Compile of cpu.v was successful.
+# Compile of cpu_tb.sv was successful.
+# Compile of data_mem.sv was successful.
+# Compile of dst_mux.v was successful.
+# Compile of id.v was successful.
+# Compile of id2.v was successful with warnings.
+# Compile of instr_mem.sv was successful.
+# Compile of prgm_cntr.v was successful.
+# Compile of rf.sv was successful.
+# Compile of rf_mem.sv was successful.
+# Compile of rst_synch.sv was successful.
+# 14 compiles, 0 failed with no errors.
+restart
+# Loading work.cpu_tb
+# Loading work.cpu
+# Loading work.pc
+# Loading work.IM
+# Loading work.id2
+# Loading work.rf
+# Loading work.rf_mem
+# Loading work.src_mux
+# Loading work.alu
+# Loading work.DM
+# Loading work.dst_mux
+# Loading work.br_bool
+run -all
+# ** Note: $stop    : C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/cpu_tb.sv(21)
+#    Time: 20001 ps  Iteration: 1  Instance: /cpu_tb
+# Break in Module cpu_tb at C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/cpu_tb.sv line 21

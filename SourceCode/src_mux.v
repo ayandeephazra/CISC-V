@@ -68,7 +68,7 @@ assign src0 = (src0sel_ID_EX == RF2SRC0) ? RF_p0 :
 
 assign src1 = (src1sel_ID_EX == RF2SRC1) ? RF_p1 : 
               (src1sel_ID_EX == NPC2SRC1) ? pc_ID_EX :	// for JAL
-			  (src0sel_ID_EX == IMM2SRC1_6BZE) ? {10'b0,imm_ID_EX[11:6]} : 	
+			  (src1sel_ID_EX == IMM2SRC1_6BZE) ? {10'b0,imm_ID_EX[11:6]} : 	
 			  {{8{imm_ID_EX[7]}},imm_ID_EX[7:0]};			// for LHB/LLB (sign extended 8-bit immediate
 			  
 endmodule
