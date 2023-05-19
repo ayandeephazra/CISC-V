@@ -9,320 +9,320 @@ z2
 cModel Technology
 dC:/Users/Ayan Deep Hazra/Desktop/Semesters/SPRING 2023/ECE554/GroupProject_003
 valu
-!s110 1684227612
+Z0 !s110 1684484559
 !i10b 1
-!s100 UGYIgi4JPinZnBng1;Z`?3
-I9IJ>9YKijGZT?XPaW`WZe2
-Z0 VDg1SIo80bB@j0V0VzS_@n1
-Z1 dC:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode
-w1684227606
+!s100 _CfXTXZ3Z>YDadPOBdm7S3
+IUzOD_e1^C1FN1ofiX1EQ;1
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+Z2 dC:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode
+Z3 w1684229014
 8C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/alu.v
 FC:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/alu.v
-Z2 Fcommon_params.inc
+Z4 Fcommon_params.inc
 L0 1
-Z3 OV;L;10.5b;63
+Z5 OV;L;10.5b;63
 r1
 !s85 0
 31
-!s108 1684227612.000000
+Z6 !s108 1684484559.000000
 !s107 common_params.inc|C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/alu.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/alu.v|
 !i113 1
-Z4 o-work work
-Z5 tCvgOpt 0
+Z7 o-work work
+Z8 tCvgOpt 0
 vbr_bool
-Z6 !s110 1684227519
+R0
 !i10b 1
 !s100 lX=]aLT^bZWdIBQ8Q5U>d1
 IPRV]Gl3PC4eF5P[BLdNZ43
-R0
 R1
-Z7 w1675719444
+R2
+Z9 w1675719444
 8C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/br_bool.v
 FC:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/br_bool.v
 L0 1
-R3
+R5
 r1
 !s85 0
 31
-Z8 !s108 1684227519.000000
+R6
 !s107 C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/br_bool.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/br_bool.v|
 !i113 1
-R4
-R5
+R7
+R8
 vcpu
-R6
+R0
 !i10b 1
 !s100 ?neoV^efWnJkozaK4W^f70
 I^:dAYVWLV<_g:LdAZ>cY42
-R0
 R1
+R2
 w1684049636
 8C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/cpu.v
 FC:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/cpu.v
 L0 1
-R3
+R5
 r1
 !s85 0
 31
-R8
+R6
 !s107 C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/cpu.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/cpu.v|
 !i113 1
-R4
-R5
+R7
+R8
 vcpu_tb
-Z9 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
-R6
+Z10 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
+R0
 !i10b 1
 !s100 P`8;cE><0L>80L]EDT6z:3
 IPHNY]o6o^:V4RQS6zl4<A0
-R0
+R1
 !s105 cpu_tb_sv_unit
 S1
-R1
+R2
 w1683973131
 8C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/cpu_tb.sv
 FC:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/cpu_tb.sv
 L0 1
-R3
+R5
 r1
 !s85 0
 31
-R8
+R6
 !s107 C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/cpu_tb.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/cpu_tb.sv|
 !i113 1
-Z10 o-work work -sv
-R5
+Z11 o-work work -sv
+R8
 vDM
-R9
-R6
+R10
+R0
 !i10b 1
 !s100 10nc_LzFDYk3?D4>Gi6G73
 IZo]PDLKjzSB;`enX`gV<_0
-R0
+R1
 !s105 data_mem_sv_unit
 S1
-R1
+R2
 w1675976074
 8C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/data_mem.sv
 FC:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/data_mem.sv
 L0 1
-R3
+R5
 r1
 !s85 0
 31
-R8
+R6
 !s107 C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/data_mem.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/data_mem.sv|
 !i113 1
-R10
-R5
+R11
+R8
 n@d@m
 vdst_mux
-R6
+R0
 !i10b 1
 !s100 B1Y`L8Z1DSk>RACWDkc7>3
 IdajWbE4Hc8X3U32knP<HZ1
-R0
 R1
-R7
+R2
+R9
 8C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/dst_mux.v
 FC:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/dst_mux.v
 L0 1
-R3
+R5
 r1
 !s85 0
 31
-R8
+R6
 !s107 C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/dst_mux.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/dst_mux.v|
 !i113 1
-R4
-R5
+R7
+R8
 vid
-R6
-!i10b 1
-!s100 k278=omJ^gC`?Kf8jba:S1
-I@3_ccgGDT=J8Ro:binF_F0
 R0
+!i10b 1
+!s100 QJOjc>YO7?`dkL4f^=hcH1
+IRk=Vf9<22PP@[6Ef6kD8n2
 R1
-Z11 w1684225301
+R2
+R3
 8C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/id.v
 FC:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/id.v
-R2
+R4
 L0 1
-R3
+R5
 r1
 !s85 0
 31
-R8
+R6
 !s107 common_params.inc|C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/id.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/id.v|
 !i113 1
-R4
-R5
+R7
+R8
 vid2
-R6
-!i10b 1
-!s100 c7EB9<WfYcCB^D@nFRSQ>0
-I^o^oce2SWng4JN`g^<Q7K2
 R0
+!i10b 1
+!s100 Eo;7eG3oE?V4dk^adf==O3
+IgOZ9TD<7:z>`^Z42a8aP83
 R1
-w1684225901
+R2
+R3
 8C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/id2.v
 FC:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/id2.v
-R2
+R4
 L0 1
-R3
+R5
 r1
 !s85 0
 31
-R8
+R6
 !s107 common_params.inc|C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/id2.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/id2.v|
 !i113 1
-R4
-R5
+R7
+R8
 vIM
-R9
-R6
+R10
+R0
 !i10b 1
 !s100 i?[?BdUV9H?j7F@@V38RU1
 ITeDBneJdkidhbZAOIJzb52
-R0
+R1
 !s105 instr_mem_sv_unit
 S1
-R1
+R2
 w1683972832
 8C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/instr_mem.sv
 FC:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/instr_mem.sv
 L0 1
-R3
+R5
 r1
 !s85 0
 31
-R8
+R6
 !s107 C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/instr_mem.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/instr_mem.sv|
 !i113 1
-R10
-R5
+R11
+R8
 n@i@m
 vpc
-R6
+R0
 !i10b 1
 !s100 Cfn>HJFz:XCX90Yn:??FG3
 IjnC?if3>TT=1Z0WYGQTXZ2
-R0
 R1
-R7
+R2
+R9
 8C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/prgm_cntr.v
 FC:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/prgm_cntr.v
 L0 1
-R3
+R5
 r1
 !s85 0
 31
-R8
+R6
 !s107 C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/prgm_cntr.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/prgm_cntr.v|
 !i113 1
-R4
-R5
+R7
+R8
 vrf
-R9
-R6
+R10
+R0
 !i10b 1
 !s100 hbUUiRdF`iWPhfZmMNhNL0
 I?ZggTHk5fFEfINX6kO;N_0
-R0
+R1
 !s105 rf_sv_unit
 S1
-R1
+R2
 w1683972759
 8C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/rf.sv
 FC:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/rf.sv
 L0 1
-R3
+R5
 r1
 !s85 0
 31
-R8
+R6
 !s107 C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/rf.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/rf.sv|
 !i113 1
-R10
-R5
+R11
+R8
 vrf_mem
-R9
-Z12 !s110 1684227520
+R10
+Z12 !s110 1684484560
 !i10b 1
 !s100 N=K7z:ii]Vj<0gd6;6RNF2
 IXgG<aY1>K5A4LWX04R6N^3
-R0
+R1
 !s105 rf_mem_sv_unit
 S1
-R1
+R2
 w1683973098
 8C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/rf_mem.sv
 FC:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/rf_mem.sv
 L0 3
-R3
+R5
 r1
 !s85 0
 31
-R8
+Z13 !s108 1684484560.000000
 !s107 C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/rf_mem.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/rf_mem.sv|
 !i113 1
-R10
-R5
+R11
+R8
 vrst_synch
-R9
+R10
 R12
 !i10b 1
 !s100 LA24JYi`2IS_DFU_abfN^3
 Ina:VQ>J1S[4N7izEP=edX1
-R0
+R1
 !s105 rst_synch_sv_unit
 S1
-R1
-R7
+R2
+R9
 8C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/rst_synch.sv
 FC:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/rst_synch.sv
 L0 1
-R3
+R5
 r1
 !s85 0
 31
-!s108 1684227520.000000
+R13
 !s107 C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/rst_synch.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/rst_synch.sv|
 !i113 1
-R10
-R5
-vsrc_mux
-!s110 1684227518
-!i10b 1
-!s100 :b2hZQJZ@BJL2IdEKFX8B2
-Img`U<>AFJlcQHgVQEZC0K1
-R0
-R1
 R11
+R8
+vsrc_mux
+R0
+!i10b 1
+!s100 cj2Tk2]K:?O7JQ@[f5Q?^0
+IBOoz^U4T5gFcD]PRh7T1N0
+R1
+R2
+R3
 8C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/src_mux.v
 FC:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/src_mux.v
-R2
+R4
 L0 1
-R3
+R5
 r1
 !s85 0
 31
-!s108 1684227518.000000
+!s108 1684484558.000000
 !s107 common_params.inc|C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/src_mux.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/Ayan Deep Hazra/Desktop/Repos/Simple_Multicore_Processor/SourceCode/src_mux.v|
 !i113 1
-R4
-R5
+R7
+R8
